@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFT Beauty Cup - Регистрация на турнир</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">TFT Beauty Cup</h1>
+                <p class="hero-subtitle">Турнир по Teamfight Tactics от канала Александр | бьюти блог</p>
+                <div class="tournament-info">
+                    <div class="info-item">
+                        <span class="info-label">Дата:</span>
+                        <span class="info-value">20-21 сентября 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Регистрация до:</span>
+                        <span class="info-value">15 сентября 23:59</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Призовой фонд:</span>
+                        <span class="info-value">5500 ₽</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#registration" class="btn btn-primary">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <div class="section-header">
+                <h2>Регистрация на TFT Beauty Cup</h2>
+                <p>Заполните форму ниже, чтобы принять участие в турнире. Регистрация открыта до 15 сентября 23:59</p>
+            </div>
+            
+            <div class="form-container">
+                <form class="registration-form" id="registrationForm">
+                    <div class="form-group">
+                        <label for="name">Имя *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telegram">Telegram Username *</label>
+                        <input type="text" id="telegram" name="telegram" placeholder="@username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tftUsername">TFT Username *</label>
+                        <input type="text" id="tftUsername" name="tftUsername" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rank">Текущий ранг *</label>
+                        <select id="rank" name="rank" required>
+                            <option value="">Выберите ранг</option>
+                            <option value="iron">Iron</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="diamond">Diamond</option>
+                            <option value="master">Master</option>
+                            <option value="grandmaster">Grandmaster</option>
+                            <option value="challenger">Challenger</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Ответы на популярные вопросы о турнире</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Когда состоится турнир?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Турнир состоится 20-21 сентября 2025 года на сервере RU. Участие в турнире бесплатное.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Есть ли ограничения по рангу?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Турнир открыт для игроков всех рангов. Участники случайным образом распределяются по лобби по 8 человек.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какой призовой фонд?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Призовой фонд составляет 5500 ₽: 1 место - 3000 ₽, 2 место - 1500 ₽, 3 место - 1000 ₽. Также есть дополнительные номинации.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Как будет проходить турнир?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Турнир состоит из предварительного этапа (3 матча) и финального этапа (5 матчей). Система подсчета очков: 1 место - 10 очков, 2 место - 7 очков, 3 место - 6 очков и так далее.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Можно ли отменить регистрацию?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, вы можете отменить регистрацию, связавшись с организаторами через официальный Telegram-чат турнира.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какие технические требования?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Участники должны иметь стабильное интернет-соединение и быть онлайн за 15 минут до начала матча. При опоздании более чем на 5 минут участник считается выбывшим.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Есть ли дополнительные номинации?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, организатор может учредить дополнительные номинации: "Лучший стиль игры", "Самый креативный комп", "Мем года турнира".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Debug script to check if FAQ elements are found
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking FAQ elements...');
+            const faqItems = document.querySelectorAll('.faq-item');
+            console.log('FAQ items found in main page:', faqItems.length);
+            
+            if (faqItems.length === 0) {
+                console.error('No FAQ items found! Check HTML structure.');
+            } else {
+                console.log('FAQ items found successfully:', faqItems);
+            }
+        });
+    </script>
+</body>
+</html>
