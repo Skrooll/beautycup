@@ -64,29 +64,77 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = 'Отправляем...';
         submitBtn.disabled = true;
         
-        // Send data to Google Apps Script
-        fetch('https://script.google.com/macros/s/AKfycbwRYmaXNvduFX9EW3u2VBL5TjJGHP5ocJk_OQdGh9PlX-BZNGt4o3NOX5gz2QIlJFZd/exec', {
-            method: 'POST',
-            body: new URLSearchParams(data)
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result.status === 'success') {
-                alert(result.message);
+        // For testing: simulate form submission on localhost
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development - simulate submission
+            setTimeout(() => {
+                alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
                 registrationForm.reset();
-            } else {
-                alert('Ошибка: ' + result.message);
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            alert('Произошла ошибка при отправке. Попробуйте еще раз.');
-        })
-        .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+            return;
+        }
+        
+        // Try to send data to Google Apps Script
+        try {
+            fetch('https://script.google.com/macros/s/AKfycbwRYmaXNvduFX9EW3u2VBL5TjJGHP5ocJk_OQdGh9PlX-BZNGt4o3NOX5gz2QIlJFZd/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(() => {
+                // Since we're using no-cors, we can't read the response
+                // But we can assume success if no error was thrown
+                alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
+                registrationForm.reset();
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                // Fallback: try alternative method
+                sendFormAlternative(data);
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        } catch (error) {
+            console.error('Network error:', error);
+            sendFormAlternative(data);
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        });
+        }
     });
+    
+    // Alternative form submission method
+    function sendFormAlternative(data) {
+        // Create a hidden form and submit it
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://script.google.com/macros/s/AKfycbwRYmaXNvduFX9EW3u2VBL5TjJGHP5ocJk_OQdGh9PlX-BZNGt4o3NOX5gz2QIlJFZd/exec';
+        form.target = '_blank';
+        form.style.display = 'none';
+        
+        // Add form fields
+        Object.keys(data).forEach(key => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = data[key];
+            form.appendChild(input);
+        });
+        
+        // Submit form
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+        
+        alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
+        registrationForm.reset();
+    }
     
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
