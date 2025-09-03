@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = Object.fromEntries(formData);
         
         // Basic validation
-        if (!data.name || !data.telegram || !data.tftUsername || !data.email || !data.rank) {
+        if (!data.name || !data.telegram || !data.tft_nick || !data.email || !data.rank) {
             alert('Пожалуйста, заполните все обязательные поля');
             return;
         }
@@ -57,20 +57,35 @@ document.addEventListener('DOMContentLoaded', function() {
             data.telegram = '@' + data.telegram;
         }
         
-        // Simulate form submission
-        const submitBtn = registrationForm.querySelector('.btn-submit');
+        // Form submission
+        const submitBtn = registrationForm.querySelector('.cta-button');
         const originalText = submitBtn.textContent;
         
         submitBtn.textContent = 'Отправляем...';
         submitBtn.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
-            registrationForm.reset();
+        // Send data to Google Apps Script
+        fetch('https://script.google.com/macros/s/AKfycbwRYmaXNvduFX9EW3u2VBL5TjJGHP5ocJk_OQdGh9PlX-BZNGt4o3NOX5gz2QIlJFZd/exec', {
+            method: 'POST',
+            body: new URLSearchParams(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.status === 'success') {
+                alert(result.message);
+                registrationForm.reset();
+            } else {
+                alert('Ошибка: ' + result.message);
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при отправке. Попробуйте еще раз.');
+        })
+        .finally(() => {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 2000);
+        });
     });
     
     // Smooth scroll for anchor links

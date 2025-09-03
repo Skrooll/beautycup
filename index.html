@@ -46,43 +46,29 @@
             
             <div class="form-container">
                 <form class="registration-form" id="registrationForm">
-                    <div class="form-group">
-                        <label for="name">Имя *</label>
-                        <input type="text" id="name" name="name" required>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telegram">Ник в Telegram *</label>
+                            <input type="text" id="telegram" name="telegram" required placeholder="@username">
+                        </div>
+                        <div class="form-group">
+                            <label for="tft_nick">Ник в TFT *</label>
+                            <input type="text" id="tft_nick" name="tft_nick" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rank">Ваш текущий ранг *</label>
+                            <input type="text" id="rank" name="rank" required placeholder="Например: Gold III">
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="telegram">Telegram Username *</label>
-                        <input type="text" id="telegram" name="telegram" placeholder="@username" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="tftUsername">TFT Username *</label>
-                        <input type="text" id="tftUsername" name="tftUsername" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="rank">Текущий ранг *</label>
-                        <select id="rank" name="rank" required>
-                            <option value="">Выберите ранг</option>
-                            <option value="iron">Iron</option>
-                            <option value="bronze">Bronze</option>
-                            <option value="silver">Silver</option>
-                            <option value="gold">Gold</option>
-                            <option value="platinum">Platinum</option>
-                            <option value="diamond">Diamond</option>
-                            <option value="master">Master</option>
-                            <option value="grandmaster">Grandmaster</option>
-                            <option value="challenger">Challenger</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-submit">Отправить заявку</button>
+                    <button type="submit" class="cta-button">Зарегистрироваться</button>
                 </form>
             </div>
         </div>
@@ -184,6 +170,8 @@
                 console.log('FAQ items found successfully:', faqItems);
             }
         });
+
+
     </script>
 </body>
 </html>
